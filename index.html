@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单美化</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		html,body {
+			height: 100%;
+		}
+		#container {
+			height: 100%;
+			background: url('./img/mg.jpg');
+			background-size: cover;
+			filter: blur(2px);
+		}
+		#drog {
+			width: 320px;
+			height: 460px;
+			box-sizing: border-box;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -160px;
+			margin-top: -230px;
+			background: rgba(255, 255, 255, .8);
+			border: 2px solid #fff;
+			border-radius: 10px;
+			background-clip: content-box;
+			padding: 10px;
+		}
+		.title {
+			text-align: center;
+			font-size: 24px;
+			margin: 20px 0;
+			display: flex;
+		}
+		.title .line {			
+			background: linear-gradient(transparent 49%, #000 49%, #000 51%, transparent 51%);
+			flex: 1;
+		}
+		.title .lineName {
+			padding: 0 10px;
+		}
+		table tr {
+			display: block;
+			margin-top: 10px;
+		}
+		table .td_left {
+			width: 90px;
+			text-align: right;
+		}
+		.name,.password,.dpassword {
+			outline: none;
+			height: 25px;
+			border: none;
+			border-bottom: 1px solid gray;
+		}
+		.name:focus,.password:facus,.dpassword:focus {
+			transition: .8s;
+			border-bottom: 1px solid black;
+		}
+		.name::-webkit-input-placeholder,.password::-webkit-input-placeholder,.dpassword::-webkit-input-placeholder {			
+			transition: .8s;
+			transform-origin: left top;
+		}
+		/*火狐*/
+		.name::-moz-placeholder {			
+			transition: .8s;
+			transform-origin: left top;
+		}
+		/*IE*/
+		.name::-ms-input-placeholder {			
+			transition: .8s;
+			transform-origin: left top;
+		}
+		.name:focus::-webkit-input-placeholder,.password:focus::-webkit-input-placeholder,.dpassword:focus::-webkit-input-placeholder {
+			transform: scale(0.7) translateY(-10px);
+		}
+		.name:focus::-moz-placeholder {
+			transform: scale(0.7) translateY(-10px);
+		}
+		.name:focus:-ms-input-placeholder {
+			transform: scale(0.7) translateY(-10px);
+		}
+		table .gender {
+			display: none;
+		}
+		.men:before,.women:before {
+			content: '';
+			display: inline-block;
+			width: 5px;
+			height: 5px;
+			border-radius: 50%;
+			border: 1px solid #aaa;
+			padding: 4px;
+			margin-right: 3px;
+		}
+		input:checked + span:before {
+			background: black;
+			background-clip: content-box;
+		}
+		.btn {
+			width: 50px;
+			height: 30px;
+			border-radius: 4px;
+			background: #eee;
+			border: 1px solid #ccc;
+			margin-right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="container"></div>
+	<div id="drog">
+		<h2 class="title">
+			<span class="line"></span>
+			<span class="lineName">注册用户</span>
+			<span class="line"></span>
+		</h2>
+		<table>
+			<tr>
+				<td class="td_left">姓名：</td>
+				<td>
+					<input type="text" class="name" placeholder="请输入姓名">
+				</td>
+			</tr>
+			<tr>
+				<td class="td_left">密码：</td>
+				<td>
+					<input type="password" class="password" placeholder="请输入密码">
+				</td>
+			</tr>
+			<tr>
+				<td class="td_left">确认密码：</td>
+				<td>
+					<input type="password" class="dpassword" placeholder="请再次输入密码">
+				</td>
+			</tr>
+			<tr>
+				<td class="td_left">性别：</td>
+				<td>
+					<label>
+						<input type="radio" name="gender" class="gender">
+						<span class="men">男</span>
+					</label>
+					<label>
+						<input type="radio" name="gender" class="gender">
+						<span class="women">女</span>
+					</label>
+				</td>
+			</tr>
+			<tr>
+				<td class="td_left">菜系：</td>
+				<td>
+					<input type="checkbox" name="food"> 川菜
+					<input type="checkbox" name="food"> 湘菜
+					<input type="checkbox" name="food"> 闽菜
+				</td>
+			</tr>
+			<tr>
+				<td class="td_left jj">简介：</td>
+				<td>
+					<textarea cols="20" rows="3"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td class="td_left"></td>
+				<td>
+					<input class="btn" type="submit" value="提交">
+					<input class="btn" type="button" value="确认">
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
